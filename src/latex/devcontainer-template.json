@@ -1,0 +1,8 @@
+{
+    "id": "latex",
+    "version": "1.0.0",
+    "name": "LaTeX Dev Container",
+    "platforms": [
+        "Any"
+    ]
+}
