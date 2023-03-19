@@ -1,5 +1,15 @@
 {
-    "image": "latex:test",
+    "name": "LaTeX Dev Container",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "installOhMyZsh": true,
+            "configureZshAsDefaultShell": true,
+            "updatePackages": true,
+            "username": "none"
+        },
+        "ghcr.io/mazhengcn/devcontainer-features/starship:1": {}
+    }
     "customizations": {
         "vscode": {
             "extensions": [
