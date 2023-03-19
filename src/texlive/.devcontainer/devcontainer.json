@@ -9,7 +9,7 @@
             "username": "none"
         },
         "ghcr.io/mazhengcn/devcontainer-features/starship:1": {}
-    }
+    },
     "customizations": {
         "vscode": {
             "extensions": [
