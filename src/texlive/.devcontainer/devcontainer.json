@@ -1,0 +1,10 @@
+{
+    "image": "latex:test",
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "James-Yu.latex-workshop"
+            ]
+        }
+    }
+}
