@@ -1,5 +1,8 @@
 {
     "name": "LaTeX Dev Container",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": true,
