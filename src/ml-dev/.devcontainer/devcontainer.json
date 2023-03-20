@@ -1,8 +1,9 @@
 {
-    "name": "LaTeX Dev Container",
+    "name": "Machine Learning Dev Container",
     "build": {
         "dockerfile": "Dockerfile"
     },
+    // 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": true,
@@ -13,11 +14,20 @@
         },
         "ghcr.io/mazhengcn/devcontainer-features/starship:1": {}
     },
+    // 👇 Configure tool-specific properties.
     "customizations": {
         "vscode": {
             "extensions": [
-                "James-Yu.latex-workshop"
+                "ms-python.python",
+                "ms-python.pylance",
+                "ms-python.flake8",
+                "ms-python.black-formmater",
+                "ms-python.isort"
             ]
         }
-    }
+    },
+    "runArgs": [
+        "--gpus='device=1'",
+        "--shm-size=1g"
+    ]
 }

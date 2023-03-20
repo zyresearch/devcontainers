@@ -1,0 +1,9 @@
+{
+    "id": "ml-dev",
+    "version": "1.0.0",
+    "name": "Machine Learning Dev Container",
+    "description": "A machine learning Dev Container including Tensorflow 2, Pytorch, Jax Frameworks.",
+    "platforms": [
+        "Any"
+    ]
+}
