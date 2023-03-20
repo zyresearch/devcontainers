@@ -1,5 +1,4 @@
 {
-    "name": "LaTeX Dev Container",
     "build": {
         "dockerfile": "Dockerfile"
     },
