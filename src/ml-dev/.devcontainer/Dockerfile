@@ -51,7 +51,6 @@ ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
 
 USER root
-
 # Tensorflow 2
 RUN micromamba create --yes --name tf2 --channel conda-forge \
     python=3.11 \
@@ -68,4 +67,7 @@ RUN micromamba create --yes --name pytorch --channel conda-forge \
 RUN micromamba create --yes --name jax --channel conda-forge \
     python=3.11 \
     && micromamba clean --all --yes \
-    && /opt/conda/envs/jax/bin/pip install --no-cache-dir "jax[cuda]" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html 
+    && /opt/conda/envs/jax/bin/pip install --no-cache-dir -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
+    jax[cuda] \
+    dm-haiku \
+    optax
