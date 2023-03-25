@@ -1,6 +1,6 @@
 {
-    "id": "texlive",
-    "version": "1.0.0",
+    "id": "latex",
+    "version": "1.0.1",
     "name": "LaTeX Dev Container",
     "platforms": [
         "Any"

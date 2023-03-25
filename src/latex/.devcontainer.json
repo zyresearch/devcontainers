@@ -1,0 +1,45 @@
+{
+    "name": "LaTeX Dev Container",
+    "image": "texlive/texlive:latest",
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": true,
+            "installOhMyZsh": true,
+            "configureZshAsDefaultShell": true,
+            "updatePackages": true,
+            "username": "none"
+        },
+        "ghcr.io/mazhengcn/devcontainer-features/starship:1": {}
+    },
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "editor.formatOnSave": true,
+                "files.associations": {
+                    "*.tex": "latex"
+                },
+                "files.eol": "\n",
+                "latex-workshop.latex.autoClean.run": "onBuilt",
+                "latex-workshop.latex.clean.subfolder.enabled": true,
+                "latex-workshop.linting.chktex.enabled": true,
+                "latex-workshop.linting.chktex.exec.path": "chktex",
+                "latex-workshop.latexindent.exe.path": "latexindent",
+                "latex-workshop.latexindent.args": [
+                    "-c",
+                    "%DIR%",
+                    "%TMPFILE%",
+                    "-y=defaultIndent: '%INDENT%'"
+                ],
+                "latex-workshop.synctex.afterBuild.enabled": true
+            },
+            "extensions": [
+                "James-Yu.latex-workshop",
+                "aaron-bond.better-comments",
+                "yzhang.markdown-all-in-one"
+            ]
+        }
+    },
+    "runArgs": [
+        "--name=latex"
+    ]
+}
