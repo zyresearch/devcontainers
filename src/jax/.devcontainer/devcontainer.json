@@ -2,7 +2,6 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
-    // 👇 Features to add to the Dev Container. More info: https://containers.dev/implementors/features.
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
             "installZsh": true,
@@ -13,22 +12,38 @@
         },
         "ghcr.io/mazhengcn/devcontainer-features/starship:1": {}
     },
-    // 👇 Configure tool-specific properties.
     "customizations": {
         "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/opt/jaxenv/bin/python"
+            },
             "extensions": [
-                "ms-python.python",
-                "ms-python.pylance",
-                "ms-python.flake8",
+                "aaron-bond.better-comments",
+                "bungcip.better-toml",
+                "GitHub.copilot",
                 "ms-python.black-formatter",
-                "ms-python.isort"
+                "ms-python.flake8",
+                "ms-python.isort",
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "ms-toolsai.jupyter",
+                "yzhang.markdown-all-in-one"
             ]
         }
     },
+    "remoteEnv": {
+        "TZ": "Asia/Shanghai"
+    },
     "runArgs": [
-        "--gpus",
-        "all",
-        "--shm-size",
-        "8g"
+        "--gpus=all",
+        "--shm-size=8gb"
     ]
+    // "mounts": [
+    //     {
+    //         "source": "rte_data",
+    //         "target": "${containerWorkspaceFolder}/rte_data",
+    //         "type": "volume"
+    //     }
+    // ],
+    // "postCreateCommand": "python -m pip install -e ."
 }
