@@ -14,11 +14,9 @@
     "customizations": {
         "vscode": {
             "settings": {
-                "editor.formatOnSave": true,
                 "files.associations": {
                     "*.tex": "latex"
                 },
-                "files.eol": "\n",
                 "latex-workshop.latex.autoClean.run": "onBuilt",
                 "latex-workshop.latex.clean.subfolder.enabled": true,
                 "latex-workshop.linting.chktex.enabled": true,

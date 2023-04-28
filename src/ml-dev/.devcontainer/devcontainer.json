@@ -1,4 +1,5 @@
 {
+    "name": "Machine Learning Dev Container",
     "build": {
         "dockerfile": "Dockerfile"
     },
@@ -14,9 +15,6 @@
     },
     "customizations": {
         "vscode": {
-            // "settings": {
-            //     "python.defaultInterpreterPath": "/opt/deeprteenv/bin/python"
-            // },
             "extensions": [
                 "aaron-bond.better-comments",
                 "bungcip.better-toml",
@@ -35,15 +33,6 @@
         "TZ": "Asia/Shanghai"
     },
     "runArgs": [
-        "--gpus=all",
-        "--shm-size=8gb"
+        "--gpus=all"
     ]
-    // "mounts": [
-    //     {
-    //         "source": "rte_data",
-    //         "target": "${containerWorkspaceFolder}/rte_data",
-    //         "type": "volume"
-    //     }
-    // ],
-    // "postCreateCommand": "python -m pip install -e ."
 }
