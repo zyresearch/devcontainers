@@ -3,20 +3,13 @@
     "image": "texlive/texlive:latest",
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "installZsh": true,
-            "installOhMyZsh": true,
             "configureZshAsDefaultShell": true,
-            "updatePackages": true,
             "username": "none"
-        },
-        "ghcr.io/mazhengcn/devcontainer-features/starship:1": {}
+        }
     },
     "customizations": {
         "vscode": {
             "settings": {
-                "files.associations": {
-                    "*.tex": "latex"
-                },
                 "latex-workshop.latex.autoClean.run": "onBuilt",
                 "latex-workshop.latex.clean.subfolder.enabled": true,
                 "latex-workshop.linting.chktex.enabled": true,
@@ -39,9 +32,7 @@
                 "latex-workshop.synctex.afterBuild.enabled": true
             },
             "extensions": [
-                "James-Yu.latex-workshop",
-                "aaron-bond.better-comments",
-                "yzhang.markdown-all-in-one"
+                "James-Yu.latex-workshop"
             ]
         }
     }
