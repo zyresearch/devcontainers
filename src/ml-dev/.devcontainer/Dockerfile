@@ -2,9 +2,10 @@ FROM python:slim-bullseye AS base
 
 FROM base AS jax-installs
 RUN python -m venv /opt/jaxenv
-ENV PATH=/opt/jaxenv/bin:$PATH
-RUN python -m pip install --no-cache-dir --upgrade pip \
-    && python -m pip install --no-cache-dir \
+ENV PATH="/opt/jaxenv/bin:$PATH"
+
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir \
     -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html \
     absl-py \
     clu \
@@ -16,9 +17,10 @@ RUN python -m pip install --no-cache-dir --upgrade pip \
 
 FROM base AS torch-installs
 RUN python -m venv /opt/torchenv
-ENV PATH=/opt/torchenv/bin:$PATH
-RUN python -m pip install --no-cache-dir --upgrade pip \
-    && python -m pip install --no-cache-dir \
+ENV PATH="/opt/torchenv/bin:$PATH"
+
+RUN pip install --no-cache-dir --upgrade pip \
+    && pip install --no-cache-dir \
     -f https://download.pytorch.org/whl/cu118 \
     torch \
     torchaudio \

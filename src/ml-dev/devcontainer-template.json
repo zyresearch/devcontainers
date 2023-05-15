@@ -1,6 +1,6 @@
 {
     "id": "ml-dev",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "name": "Machine Learning Dev Container",
     "description": "A machine learning Dev Container including Tensorflow 2, Pytorch, Jax Frameworks.",
     "platforms": [
