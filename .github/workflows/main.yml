@@ -1,12 +1,11 @@
 name: 'Pre-build dev container image and push to github container registry' 
 on: # rebuild any PRs and main branch changes
   schedule:
-    - cron: '0 20 * * 7'
+    - cron: '0 20 * * 0'
   pull_request:
   push:
     branches:
       - main
-
 jobs:
   build:
     strategy:
