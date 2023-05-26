@@ -1,10 +1,10 @@
 {
-    "name": "LaTeX",
     "image": "texlive/texlive:latest",
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "installZsh": false,
-            "username": "none"
+            "configureZshAsDefaultShell": true,
+            "upgradePackages": true,
+            "username": "texlive"
         }
     },
     "customizations": {

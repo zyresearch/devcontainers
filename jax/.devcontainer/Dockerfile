@@ -1,10 +1,10 @@
-FROM python:slim-bullseye AS base
+FROM python:slim AS base
 
 FROM base AS pip-installs
 RUN apt-get update && apt-get install -y --no-install-recommends git \
     && rm -rf /var/lib/apt/lists/*
 
-RUN python -m venv /opt/jaxvenv
+RUN python -m venv /opt/jaxenv
 ENV PATH="/opt/jaxenv/bin:$PATH"
 
 COPY requirements.txt /tmp/pip-tmp/

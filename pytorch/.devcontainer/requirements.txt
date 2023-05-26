@@ -1,0 +1,7 @@
+absl-py
+numpy
+matplotlib
+ml-collections
+scipy
+torch
+torchvision

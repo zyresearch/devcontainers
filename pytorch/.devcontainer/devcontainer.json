@@ -5,26 +5,26 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "installZsh": false,
-            "username": "none"
+            "configureZshAsDefaultShell": true,
+            "upgradePackages": true,
+            "username": "torch"
         }
     },
-    "remoteEnv": {
-        "TZ": "Asia/Shanghai"
-    },
     "runArgs": [
-        "--gpus=all"
+        "--gpus=all",
+        "--shm-size=1g"
     ],
     "customizations": {
         "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/opt/torchenv/bin/python"
+            },
             "extensions": [
-                "GitHub.copilot",
                 "ms-python.black-formatter",
                 "ms-python.flake8",
                 "ms-python.isort",
                 "ms-python.python",
-                "ms-python.vscode-pylance",
-                "ms-toolsai.jupyter"
+                "ms-python.vscode-pylance"
             ]
         }
     }
