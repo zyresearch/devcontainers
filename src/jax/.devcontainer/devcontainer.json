@@ -4,46 +4,27 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "installZsh": true,
-            "installOhMyZsh": true,
             "configureZshAsDefaultShell": true,
             "upgradePackages": true,
-            "username": "none"
-        },
-        "ghcr.io/mazhengcn/devcontainer-features/starship:1": {}
+            "username": "jax"
+        }
     },
+    "runArgs": [
+        "--gpus=all",
+        "--shm-size=1g"
+    ],
     "customizations": {
         "vscode": {
             "settings": {
-                "python.defaultInterpreterPath": "/opt/jaxenv/bin/python"
+                "python.defaultInterpreterPath": "/opt/venv/bin/python"
             },
             "extensions": [
-                "aaron-bond.better-comments",
-                "bungcip.better-toml",
-                "GitHub.copilot",
                 "ms-python.black-formatter",
                 "ms-python.flake8",
                 "ms-python.isort",
                 "ms-python.python",
-                "ms-python.vscode-pylance",
-                "ms-toolsai.jupyter",
-                "yzhang.markdown-all-in-one"
+                "ms-python.vscode-pylance"
             ]
         }
-    },
-    "remoteEnv": {
-        "TZ": "Asia/Shanghai"
-    },
-    "runArgs": [
-        "--gpus=all",
-        "--shm-size=8gb"
-    ]
-    // "mounts": [
-    //     {
-    //         "source": "rte_data",
-    //         "target": "${containerWorkspaceFolder}/rte_data",
-    //         "type": "volume"
-    //     }
-    // ],
-    // "postCreateCommand": "python -m pip install -e ."
+    }
 }

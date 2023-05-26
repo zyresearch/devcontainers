@@ -1,8 +1,0 @@
-{
-    "id": "jax",
-    "version": "1.0.1",
-    "name": "JAX with Haiku, Optax",
-    "platforms": [
-        "Any"
-    ]
-}
