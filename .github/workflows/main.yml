@@ -9,7 +9,6 @@ jobs:
   build:
     strategy:
       matrix:
-        subfolder: [jax, pytorch, latex, kipack]
         name: [jax, pytorch, latex, kipack]
     runs-on: ubuntu-latest
     steps:
@@ -25,7 +24,7 @@ jobs:
         uses: devcontainers/ci@v0.3
         with:
           # Change this to point to your image name
-          subFolder: ${{ matrix.subfolder }}
+          subFolder: ${{ matrix.name }}
           imageName: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}}
           cacheFrom: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
           push: always
