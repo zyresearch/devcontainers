@@ -25,6 +25,6 @@ jobs:
         with:
           # Change this to point to your image name
           subFolder: ${{ matrix.name }}
-          imageName: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}}
+          imageName: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
           cacheFrom: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
           push: always
