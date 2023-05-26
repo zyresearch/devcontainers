@@ -1,4 +1,4 @@
-name: 'build' 
+name: 'Pre-build dev container image and push to github container registry' 
 on: # rebuild any PRs and main branch changes
   pull_request:
   push:
@@ -24,6 +24,7 @@ jobs:
         uses: devcontainers/ci@v0.3
         with:
           # Change this to point to your image name
+          subFolder: jax
           imageName: ghcr.io/mazhengcn/devcontainers/jax
           cacheFrom: ghcr.io/mazhengcn/devcontainers/jax
           push: always
