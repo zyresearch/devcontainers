@@ -9,7 +9,7 @@ jobs:
   build:
     strategy:
       matrix:
-        name: [jax, pytorch, latex, kipack]
+        name: [jax, pytorch, latex]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (GitHub)
