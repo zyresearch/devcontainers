@@ -1,31 +1,26 @@
 {
-    "name": "Machine Learning",
     "build": {
         "dockerfile": "Dockerfile"
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "configureZshAsDefaultShell": true,
-            "upgradePackages": true,
-            "username": "torch"
+            "username": "torch",
+            "upgradePackages": true
         }
     },
-    "runArgs": [
-        "--gpus=all",
-        "--shm-size=1g"
-    ],
     "customizations": {
         "vscode": {
             "settings": {
                 "python.defaultInterpreterPath": "/opt/torchenv/bin/python"
             },
             "extensions": [
-                "ms-python.black-formatter",
-                "ms-python.flake8",
-                "ms-python.isort",
                 "ms-python.python",
-                "ms-python.vscode-pylance"
+                "ms-python.vscode-pylance",
+                "ms-python.flake8",
+                "ms-python.black-formatter",
+                "ms-python.isort"
             ]
         }
-    }
+    },
+    "remoteUser": "torch"
 }

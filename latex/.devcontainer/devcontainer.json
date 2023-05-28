@@ -2,9 +2,8 @@
     "image": "texlive/texlive:latest",
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "configureZshAsDefaultShell": true,
-            "upgradePackages": true,
-            "username": "texlive"
+            "username": "texlive",
+            "upgradePackages": true
         }
     },
     "customizations": {
@@ -35,5 +34,6 @@
                 "James-Yu.latex-workshop"
             ]
         }
-    }
+    },
+    "remoteUser": "texlive"
 }

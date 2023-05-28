@@ -4,27 +4,23 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "configureZshAsDefaultShell": true,
-            "upgradePackages": true,
-            "username": "jax"
+            "username": "jax",
+            "upgradePackages": true
         }
     },
-    "runArgs": [
-        "--gpus=all",
-        "--shm-size=1g"
-    ],
     "customizations": {
         "vscode": {
             "settings": {
                 "python.defaultInterpreterPath": "/opt/jaxenv/bin/python"
             },
             "extensions": [
-                "ms-python.black-formatter",
-                "ms-python.flake8",
-                "ms-python.isort",
                 "ms-python.python",
-                "ms-python.vscode-pylance"
+                "ms-python.vscode-pylance",
+                "ms-python.flake8",
+                "ms-python.black-formatter",
+                "ms-python.isort"
             ]
         }
-    }
+    },
+    "remoteUser": "jax"
 }
