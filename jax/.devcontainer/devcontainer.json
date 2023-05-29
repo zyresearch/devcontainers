@@ -4,6 +4,7 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": false,
             "username": "jax",
             "upgradePackages": true
         }
@@ -11,7 +12,7 @@
     "customizations": {
         "vscode": {
             "settings": {
-                "python.defaultInterpreterPath": "/opt/jaxenv/bin/python"
+                "python.defaultInterpreterPath": "/opt/venv/bin/python"
             },
             "extensions": [
                 "ms-python.python",
