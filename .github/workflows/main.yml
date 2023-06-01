@@ -1,8 +1,8 @@
-name: 'Pre-build dev container image and push to github container registry' 
-on: # rebuild any PRs and main branch changes
+name: Pre-build dev containers and push 
+on:
+  workflow_dispatch:
   schedule:
     - cron: '0 20 * * 0'
-  pull_request:
   push:
     branches:
       - main
