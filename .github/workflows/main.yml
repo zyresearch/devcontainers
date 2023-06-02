@@ -26,7 +26,7 @@ jobs:
         uses: devcontainers/ci@v0.3
         with:
           # Change this to point to your image name
-          subFolder: ${{ matrix.name }}/${{ matrix.cuda_version }}}
+          subFolder: ${{ matrix.name }}/${{ matrix.cuda_version }}
           imageName: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
           cacheFrom: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
           imageTag: ${{ matrix.cuda_version }}
