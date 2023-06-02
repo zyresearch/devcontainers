@@ -31,6 +31,6 @@ jobs:
           subFolder: ${{ matrix.name }}/${{ matrix.cuda_version }}}
           imageName: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
           cacheFrom: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
-          ima
-          imageTag: ${{ matrix.cuda_version }}
+          - if: ${{ matrix.cuda_version }}
+            imageTag: ${{ matrix.cuda_version }}
           push: always
