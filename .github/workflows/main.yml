@@ -38,7 +38,7 @@ jobs:
           push: always
       - name: Build and Push without Muti-tags
         uses: devcontainers/ci@v0.3
-        if: ! ${{ matrix.cuda_version }}
+        if: ${{ matrix.cuda_version == null }}
         with:
           # Change this to point to your image name
           subFolder: ${{ matrix.name }}
