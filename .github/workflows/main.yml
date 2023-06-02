@@ -10,10 +10,8 @@ jobs:
   build:
     strategy:
       matrix:
-        name: [jax, pytorch, latex]
-        include:
-          - cuda_version: [11, 12]
-            name: jax
+        name: [jax]
+        cuda_version: [11, 12]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (GitHub)
@@ -31,6 +29,5 @@ jobs:
           subFolder: ${{ matrix.name }}/${{ matrix.cuda_version }}}
           imageName: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
           cacheFrom: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
-          - if: ${{ matrix.cuda_version }}
-            imageTag: ${{ matrix.cuda_version }}
+          imageTag: ${{ matrix.cuda_version }}
           push: always
