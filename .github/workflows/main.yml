@@ -11,6 +11,9 @@ jobs:
     strategy:
       matrix:
         name: [jax, pytorch, latex]
+        include:
+          - cuda_version: [11, 12]
+            name: jax
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (GitHub)
@@ -25,7 +28,9 @@ jobs:
         uses: devcontainers/ci@v0.3
         with:
           # Change this to point to your image name
-          subFolder: ${{ matrix.name }}
+          subFolder: ${{ matrix.name }}/${{ matrix.cuda_version }}}
           imageName: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
           cacheFrom: ghcr.io/mazhengcn/devcontainers/${{ matrix.name }}
+          ima
+          imageTag: ${{ matrix.cuda_version }}
           push: always
