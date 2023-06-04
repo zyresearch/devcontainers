@@ -4,6 +4,7 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
+            "installZsh": false,
             "username": "jax",
             "upgradePackages": true
         }
