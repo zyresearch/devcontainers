@@ -37,5 +37,5 @@ jobs:
           subFolder: ${{ matrix.name }}/${{ matrix.version }}
           imageName: ghcr.io/zyresearch/devcontainers/${{ matrix.name }}
           cacheFrom: ghcr.io/zyresearch/devcontainers/${{ matrix.name }}
-          imageTags: ${{ matrix.version }}
+          imageTag: ${{ matrix.version }}
           push: always
