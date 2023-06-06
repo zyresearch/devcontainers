@@ -6,11 +6,20 @@ on:
   push:
     branches:
       - main
+
 jobs:
   build:
     strategy:
       matrix:
-        name: [jax, pytorch, latex]
+        include:
+          - name: jax
+            version: latest
+          - name: jax
+            version: 11
+          - name: pytorch
+            version: latest
+          - name: latex
+            version: latest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (GitHub)
@@ -21,11 +30,12 @@ jobs:
           registry: ghcr.io
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and Push without Muti-tags
+      - name: Build and Push
         uses: devcontainers/ci@v0.3
         with:
           # Change this to point to your image name
-          subFolder: ${{ matrix.name }}
+          subFolder: ${{ matrix.name }}/${{ matrix.version }}
           imageName: ghcr.io/zyresearch/devcontainers/${{ matrix.name }}
           cacheFrom: ghcr.io/zyresearch/devcontainers/${{ matrix.name }}
+          imageTags: ${{ matrix.version }}
           push: always
