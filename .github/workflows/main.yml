@@ -15,6 +15,8 @@ jobs:
           - name: jax
             version: latest
           - name: jax
+            version: 12.0
+          - name: jax
             version: 11
           - name: pytorch
             version: latest
