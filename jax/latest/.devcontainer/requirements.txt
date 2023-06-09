@@ -5,8 +5,8 @@ absl-py
 dill
 dm-haiku 
 jax
-jaxlib==*+cuda12.cudnn*
-jaxline @ git+https://github.com/mazhengcn/jaxline
+jaxlib==0.4.12+cuda12.cudnn89
+jaxline@git+https://github.com/mazhengcn/jaxline
 ml-collections
 numpy
 nvidia-cublas-cu12
