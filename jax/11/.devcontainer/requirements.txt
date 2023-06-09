@@ -4,10 +4,19 @@
 absl-py
 dill
 dm-haiku
-jax[cuda11_pip]==0.4.12
+jax     
+jaxlib==*+cuda11.cudnn*
 jaxline @ git+https://github.com/mazhengcn/jaxline
 ml-collections
 numpy
+nvidia-cublas-cu11>=11.11
+nvidia-cuda-cupti-cu11>=11.8
+nvidia-cuda-nvcc-cu11>=11.8
+nvidia-cuda-runtime-cu11>=11.8
+nvidia-cudnn-cu11>=8.8
+nvidia-cufft-cu11>=10.9
+nvidia-cusolver-cu11>=11.4
+nvidia-cusparse-cu11>=11.7
 optax
 tensorflow-cpu
 tensorflow-datasets
