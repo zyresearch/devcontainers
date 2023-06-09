@@ -4,7 +4,7 @@
 absl-py
 dill
 dm-haiku
-jax[cuda11_pip]
+jax[cuda11_pip]==0.4.12
 jaxline @ git+https://github.com/mazhengcn/jaxline
 ml-collections
 numpy
