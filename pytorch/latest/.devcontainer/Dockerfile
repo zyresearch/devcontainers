@@ -17,7 +17,7 @@ RUN ${TORCH_ENV_DIR}/bin/python -m pip install --no-cache-dir --upgrade pip \
     && ${TORCH_ENV_DIR}/bin/python -m pip install --no-cache-dir -r /tmp/pip-tmp/requirements.txt \
     && rm -rf /tmp/pip-tmp
 
-FROM ubunt:latest
+FROM ubuntu:latest
 ARG TORCH_ENV_DIR
 
 COPY --from=builder --chmod=777 ${TORCH_ENV_DIR} ${TORCH_ENV_DIR}

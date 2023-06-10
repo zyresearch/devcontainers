@@ -17,7 +17,7 @@ RUN ${JAX_ENV_DIR}/bin/python -m pip install --no-cache-dir --upgrade pip \
     && ${JAX_ENV_DIR}/bin/python -m pip install --no-cache-dir -r /tmp/pip-tmp/requirements.txt \
     && rm -rf /tmp/pip-tmp
 
-FROM ubunt:latest
+FROM ubuntu:latest
 ARG JAX_ENV_DIR
 
 COPY --from=builder --chmod=777 ${JAX_ENV_DIR} ${JAX_ENV_DIR}
