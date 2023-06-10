@@ -13,9 +13,9 @@ jobs:
       matrix:
         include:
           - name: jax
-            version: latest
+            version: latest, cuda-12.1
           - name: jax
-            version: 11
+            version: cuda-11.8
           - name: pytorch
             version: latest
           - name: latex

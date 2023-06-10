@@ -1,15 +1,27 @@
-FROM python:slim AS base
+ARG TORCH_ENV_DIR="/opt/torch"
 
-FROM base AS pip-installs
+FROM mambaorg/micromamba:jammy AS builder
+ARG TORCH_ENV_DIR
 
-RUN python -m venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
+USER root
+RUN apt-get update apt-get install -y --no-install-recommends
+    git \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN micromamba create -p ${TORCH_ENV_DIR} -c conda-forge \
+    python pip \
+    && micromamba clean -ya
 
 COPY requirements.txt /tmp/pip-tmp/
-RUN python -m pip install --no-cache-dir --upgrade pip \
-    && python -m pip install --no-cache-dir -r /tmp/pip-tmp/requirements.txt \
+RUN ${TORCH_ENV_DIR}/bin/python -m pip install --no-cache-dir --upgrade pip \
+    && ${TORCH_ENV_DIR}/bin/python -m pip install --no-cache-dir -r /tmp/pip-tmp/requirements.txt \
     && rm -rf /tmp/pip-tmp
 
-FROM base
-COPY --from=pip-installs --chmod=777 /opt/venv /opt/venv
-ENV PATH="/opt/venv/bin:$PATH"
+FROM ubunt:latest
+ARG TORCH_ENV_DIR
+
+COPY --from=builder --chmod=777 ${TORCH_ENV_DIR} ${TORCH_ENV_DIR}
+ENV PATH=${TORCH_ENV_DIR}/bin:$PATH
+
+ENV NVIDIA_VISIBLE_DEVICES all
+ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
