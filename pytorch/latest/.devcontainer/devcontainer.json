@@ -12,7 +12,7 @@
     "customizations": {
         "vscode": {
             "settings": {
-                "python.defaultInterpreterPath": "/opt/venv/bin/python"
+                "python.defaultInterpreterPath": "/opt/torch/bin/python"
             },
             "extensions": [
                 "ms-python.python",
