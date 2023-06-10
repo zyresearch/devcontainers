@@ -4,7 +4,7 @@ FROM mambaorg/micromamba:jammy AS builder
 ARG JAX_ENV_DIR
 
 USER root
-RUN apt-get update apt-get install -y --no-install-recommends
+RUN apt-get update && apt-get install -y --no-install-recommends
     git \
     && rm -rf /var/lib/apt/lists/*
 
