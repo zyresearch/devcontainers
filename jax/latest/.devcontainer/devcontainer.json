@@ -12,7 +12,7 @@
     "customizations": {
         "vscode": {
             "settings": {
-                "python.defaultInterpreterPath": "/opt/jax/bin/python"
+                "python.defaultInterpreterPath": "/usr/local/bin/python"
             },
             "extensions": [
                 "ms-python.python",

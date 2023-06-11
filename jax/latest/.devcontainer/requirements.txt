@@ -1,22 +1,13 @@
-# Globa options
 --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 # Packages
 absl-py
 dill
 dm-haiku 
-jax
+jax==0.4.12
 jaxlib==0.4.12+cuda12.cudnn89
-jaxline@git+https://github.com/mazhengcn/jaxline
+jaxline @ git+https://github.com/mazhengcn/jaxline
 ml-collections
 numpy
-nvidia-cublas-cu12
-nvidia-cuda-cupti-cu12
-nvidia-cuda-nvcc-cu12
-nvidia-cuda-runtime-cu12
-nvidia-cudnn-cu12>=8.9
-nvidia-cufft-cu12
-nvidia-cusolver-cu12
-nvidia-cusparse-cu12
 optax
 tensorflow-cpu
 tensorflow-datasets
