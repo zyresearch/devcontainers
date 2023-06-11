@@ -1,27 +1,17 @@
-ARG TORCH_ENV_DIR="/opt/torch"
+FROM python:slim-bullseye AS base
 
-FROM mambaorg/micromamba:jammy AS builder
-ARG TORCH_ENV_DIR
-
-USER root
+FROM base as pip-installs
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     && rm -rf /var/lib/apt/lists/*
-
-RUN micromamba create -p ${TORCH_ENV_DIR} -c conda-forge \
-    python pip \
-    && micromamba clean -ya
-
 COPY requirements.txt /tmp/pip-tmp/
-RUN ${TORCH_ENV_DIR}/bin/python -m pip install --no-cache-dir --upgrade pip \
-    && ${TORCH_ENV_DIR}/bin/python -m pip install --no-cache-dir -r /tmp/pip-tmp/requirements.txt \
+RUN python -m pip install --no-cache-dir --upgrade pip \
+    && python -m pip install --no-cache-dir -r /tmp/pip-tmp/requirements.txt \
     && rm -rf /tmp/pip-tmp
 
-FROM ubuntu:latest
-ARG TORCH_ENV_DIR
-
-COPY --from=builder --chmod=777 ${TORCH_ENV_DIR} ${TORCH_ENV_DIR}
-ENV PATH=${TORCH_ENV_DIR}/bin:$PATH
+FROM base
+COPY --from=pip-installs /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=pip-installs /usr/local/bin /usr/local/bin
 
 ENV NVIDIA_VISIBLE_DEVICES all
 ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
