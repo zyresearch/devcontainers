@@ -2,8 +2,7 @@
 absl-py
 dill
 dm-haiku 
-jax==0.4.12
-jaxlib==0.4.12+cuda12.cudnn89
+jax[cuda12_local]
 jaxline @ git+https://github.com/mazhengcn/jaxline
 ml-collections
 numpy

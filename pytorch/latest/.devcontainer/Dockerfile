@@ -1,4 +1,4 @@
-FROM python:slim-bullseye AS base
+FROM python:3.11-slim-bookworm AS base
 
 FROM base as pip-installs
 RUN apt-get update && apt-get install -y --no-install-recommends \

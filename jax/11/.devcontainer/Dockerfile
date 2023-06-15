@@ -1,4 +1,4 @@
-FROM python:slim-bullseye AS base
+FROM python:3.11-slim-bookworm AS base
 
 FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04 AS cuda-image
 
