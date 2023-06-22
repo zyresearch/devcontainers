@@ -1,12 +1,15 @@
---find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 absl-py
 chex @ git+https://github.com/deepmind/chex
+clu @ git+https://github.com/google/CommonLoopUtils
 dill
 dm-haiku @ git+https://github.com/deepmind/dm-haiku
-jax[cuda11_local]     
+flax @ git+https://github.com/google/flax
+jax[cuda11_local]
 jaxline @ git+https://github.com/mazhengcn/jaxline
 ml-collections
 numpy
 optax @ git+https://github.com/deepmind/optax
+orbax @ git+https://github.com/google/orbax/#subdirectory=checkpoint
 tensorflow-cpu
 tensorflow-datasets
+--find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
