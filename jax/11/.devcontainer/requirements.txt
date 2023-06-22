@@ -9,7 +9,7 @@ jaxline @ git+https://github.com/mazhengcn/jaxline
 ml-collections
 numpy
 optax @ git+https://github.com/deepmind/optax
-orbax @ git+https://github.com/google/orbax/#subdirectory=checkpoint
+orbax-checkpoint @ git+https://github.com/google/orbax/#subdirectory=checkpoint
 tensorflow-cpu
 tensorflow-datasets
 --find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
