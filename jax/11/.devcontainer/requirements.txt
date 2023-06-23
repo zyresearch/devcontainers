@@ -4,6 +4,7 @@ clu @ git+https://github.com/google/CommonLoopUtils
 dill
 dm-haiku @ git+https://github.com/deepmind/dm-haiku
 flax @ git+https://github.com/google/flax
+--find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 jax[cuda11_local]
 jaxline @ git+https://github.com/mazhengcn/jaxline
 ml-collections
@@ -12,4 +13,3 @@ optax @ git+https://github.com/deepmind/optax
 orbax-checkpoint @ git+https://github.com/google/orbax/#subdirectory=checkpoint
 tensorflow-cpu
 tensorflow-datasets
---find-links https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
