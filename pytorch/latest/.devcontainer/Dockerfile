@@ -12,6 +12,3 @@ RUN python -m pip install --no-cache-dir --upgrade pip \
 FROM base
 COPY --from=pip-installs /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=pip-installs /usr/local/bin /usr/local/bin
-
-ENV NVIDIA_VISIBLE_DEVICES all
-ENV NVIDIA_DRIVER_CAPABILITIES compute,utility
