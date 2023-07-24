@@ -1,13 +1,13 @@
 absl-py
-chex @ git+https://github.com/deepmind/chex
-clu @ git+https://github.com/google/CommonLoopUtils
+chex
+clu
 dill
-dm-haiku @ git+https://github.com/deepmind/dm-haiku
-flax @ git+https://github.com/google/flax
+dm-haiku
+flax
 jaxline @ git+https://github.com/mazhengcn/jaxline
 ml-collections
 numpy
-optax @ git+https://github.com/deepmind/optax
-orbax-checkpoint @ git+https://github.com/google/orbax/#subdirectory=checkpoint
+optax
+orbax-checkpoint
 tensorflow-cpu
 tensorflow-datasets
