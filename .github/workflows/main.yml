@@ -16,7 +16,7 @@ jobs:
             version: latest
           - name: pytorch
             version: latest
-          - name: latex
+          - name: texlive
             version: latest
     runs-on: ubuntu-latest
     steps:
