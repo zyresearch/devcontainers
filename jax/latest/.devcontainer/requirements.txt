@@ -2,6 +2,7 @@ absl-py
 chex
 dill
 dm-haiku
+jax[cuda12_local]
 jaxline @ git+https://github.com/mazhengcn/jaxline
 ml-collections
 numpy
