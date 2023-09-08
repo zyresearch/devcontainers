@@ -34,6 +34,5 @@ jobs:
           # Change this to point to your image name
           subFolder: ${{ matrix.name }}/${{ matrix.version }}
           imageName: ghcr.io/zyresearch/devcontainers/${{ matrix.name }}
-          cacheFrom: ghcr.io/zyresearch/devcontainers/${{ matrix.name }}
           imageTag: ${{ matrix.version }}
           push: always
