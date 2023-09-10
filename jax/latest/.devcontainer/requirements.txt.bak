@@ -1,9 +1,10 @@
+-f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
 absl-py
 clu
 dill
 dm-haiku
 flax
-jax
+jax[cuda12_local]
 jaxline @ git+https://github.com/mazhengcn/jaxline
 ml-collections
 numpy

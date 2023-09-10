@@ -2,17 +2,10 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
-    "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {
-            "installZsh": false,
-            "username": "jax",
-            "upgradePackages": true
-        }
-    },
     "customizations": {
         "vscode": {
             "settings": {
-                "python.defaultInterpreterPath": "/usr/local/bin/python"
+                "python.defaultInterpreterPath": "/usr/bin/python"
             },
             "extensions": [
                 "ms-python.python",
@@ -21,6 +14,5 @@
                 "charliermarsh.ruff"
             ]
         }
-    },
-    "remoteUser": "jax"
+    }
 }
