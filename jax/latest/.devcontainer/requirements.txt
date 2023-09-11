@@ -4,7 +4,7 @@ dill
 dm-haiku
 flax
 jax
-jaxline @ git+https://github.com/mazhengcn/jaxline
+jaxline
 ml-collections
 numpy
 orbax-checkpoint
