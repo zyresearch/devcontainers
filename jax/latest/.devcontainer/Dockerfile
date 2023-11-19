@@ -1,4 +1,4 @@
-FROM python:3.12-slim-bookworm AS base
+FROM python:3.11-slim-bookworm AS base
 
 FROM base AS pip-installs
 
@@ -11,5 +11,5 @@ RUN python -m pip install --no-cache-dir --upgrade pip \
     && rm -rf /tmp/pip-tmp
 
 FROM base
-COPY --from=pip-installs /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=pip-installs /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
 COPY --from=pip-installs /usr/local/bin /usr/local/bin
