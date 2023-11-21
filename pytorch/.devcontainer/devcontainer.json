@@ -4,23 +4,16 @@
     },
     "features": {
         "ghcr.io/devcontainers/features/common-utils:2": {
-            "installZsh": false,
-            "username": "torch",
-            "upgradePackages": true
+            "username": "torch"
         }
     },
     "customizations": {
         "vscode": {
-            "settings": {
-                "python.defaultInterpreterPath": "/usr/local/bin/python"
-            },
             "extensions": [
                 "ms-python.python",
                 "ms-python.vscode-pylance",
-                "ms-python.black-formatter",
                 "charliermarsh.ruff"
             ]
         }
-    },
-    "remoteUser": "torch"
+    }
 }

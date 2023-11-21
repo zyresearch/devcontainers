@@ -1,4 +1,4 @@
-name: Pre-build dev containers and push 
+name: Dev containers build and push 
 on:
   workflow_dispatch:
   schedule:
@@ -11,13 +11,7 @@ jobs:
   build:
     strategy:
       matrix:
-        include:
-          - name: jax
-            version: latest
-          - name: pytorch
-            version: latest
-          - name: texlive
-            version: latest
+        name: [jax, pytorch, texlive]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (GitHub)
@@ -32,8 +26,7 @@ jobs:
         uses: devcontainers/ci@v0.3
         with:
           # Change this to point to your image name
-          subFolder: ${{ matrix.name }}/${{ matrix.version }}
-          imageName: ghcr.io/zyresearch/devcontainers/${{ matrix.name }}
-          imageTag: ${{ matrix.version }}
+          subFolder: ${{ matrix.name }}
+          imageName: ghcr.io/${{ github.repository }}/${{ matrix.name }}
           noCache: true
           push: always
