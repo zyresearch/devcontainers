@@ -3,7 +3,7 @@ FROM python:3.12-slim AS base
 FROM base AS pip-installs
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    git build-essential \
+    git build-essential cmake \
     && rm -rf /var/lib/apt/lists/*
 
 RUN python -m pip install --no-cache-dir --upgrade pip \
