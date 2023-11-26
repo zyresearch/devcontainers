@@ -1,9 +1,9 @@
-FROM python:3.11-slim-bookworm AS base
+FROM python:3.12-slim-bookworm AS base
 
 FROM base AS pip-installs
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
-    git \
+    git cmake g++ \
     && rm -rf /var/lib/apt/lists/*
 
 RUN python -m pip install --no-cache-dir --upgrade pip \
@@ -20,10 +20,10 @@ RUN python -m pip install --no-cache-dir \
     numpy \
     orbax-checkpoint \
     orbax-export \
-    tensorflow-cpu \
-    tensorflow-datasets
+    tf-nightly-cpu \
+    tfds-nightly
 
 FROM base
 
-COPY --from=pip-installs /usr/local/lib/python3.11/site-packages /usr/local/lib/python3.11/site-packages
+COPY --from=pip-installs /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
 COPY --from=pip-installs /usr/local/bin /usr/local/bin
