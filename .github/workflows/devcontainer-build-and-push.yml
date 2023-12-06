@@ -28,5 +28,4 @@ jobs:
           # Change this to point to your image name
           subFolder: ${{ matrix.name }}
           imageName: ghcr.io/${{ github.repository }}/${{ matrix.name }}
-          noCache: true
           push: always
