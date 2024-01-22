@@ -9,9 +9,10 @@ RUN apk add --no-cache \
     xz \
     fontconfig
 COPY ./texlive.profile ./
-RUN wget https://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz \
+ARG REPO=https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
+RUN wget ${REPO}/install-tl-unx.tar.gz \
     && tar -xzf ./install-tl-unx.tar.gz --strip-components=1 \
-    && ./install-tl -repository https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet/ --profile=texlive.profile \
+    && ./install-tl -repository ${REPO} --profile=texlive.profile \
     && ln -sf /usr/local/texlive/*/bin/* /usr/local/bin/texlive
 ENV PATH /usr/local/bin/texlive:$PATH
 RUN tlmgr install latexmk chktex latexindent
