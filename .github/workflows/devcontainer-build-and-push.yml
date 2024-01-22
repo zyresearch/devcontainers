@@ -11,7 +11,7 @@ jobs:
   build:
     strategy:
       matrix:
-        name: [jax, pytorch, texlive, kipack]
+        name: [jax, pytorch, texlive]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout (GitHub)
