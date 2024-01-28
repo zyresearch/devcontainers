@@ -1,34 +1,32 @@
-FROM alpine:latest AS installer
-WORKDIR /install-tl-unx
-RUN apk add --no-cache \
-    curl \
-    make \
-    perl \
-    tar \
-    wget \
-    xz \
-    fontconfig
-COPY ./texlive.profile ./
+FROM debian:12-slim AS installer
 ARG REPO=https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
+
+WORKDIR /install-tl-unx
+RUN apt-get update && apt-get install -y \
+    fontconfig \
+    perl \
+    wget \
+    xz-utils \
+    && rm -rf /var/lib/apt/lists/*
+COPY ./texlive.profile ./latexindent ./
+RUN chmod +x ./latexindent
 RUN wget ${REPO}/install-tl-unx.tar.gz \
     && tar -xzf ./install-tl-unx.tar.gz --strip-components=1 \
     && ./install-tl -repository ${REPO} --profile=texlive.profile \
     && ln -sf /usr/local/texlive/*/bin/* /usr/local/bin/texlive
 ENV PATH /usr/local/bin/texlive:$PATH
-RUN tlmgr install latexmk chktex latexindent
+RUN tlmgr update --self && tlmgr update --all \
+    && tlmgr install latexmk chktex \
+    && wget -O latexindent https://github.com/cmhughes/latexindent.pl/releases/download/V3.23.6/latexindent-linux \
+    && chmod +x latexindent
 
-# latexindent perl modules
-RUN cd /usr/local/bin && \
-    curl -L https://cpanmin.us/ -o cpanm && \
-    chmod +x cpanm
-RUN cpanm -n File::HomeDir \
-    && cpanm -n Params::ValidationCompiler \
-    && cpanm -n YAML::Tiny
-
-FROM alpine:latest
-RUN apk add --no-cache perl git wget
+FROM debian:12-slim
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    perl \
+    wget \
+    git \
+    && rm -rf /var/lib/apt/lists/*
 COPY --from=installer /usr/local/texlive /usr/local/texlive
-COPY --from=installer /usr/local/share/perl5/site_perl /usr/local/share/perl5/site_perl
-
 RUN ln -sf /usr/local/texlive/*/bin/* /usr/local/bin/texlive
+COPY --from=installer /install-tl-unx/latexindent /usr/local/bin/texlive
 ENV PATH /usr/local/bin/texlive:$PATH
