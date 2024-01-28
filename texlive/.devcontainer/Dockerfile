@@ -9,7 +9,6 @@ RUN apt-get update && apt-get install -y \
     xz-utils \
     && rm -rf /var/lib/apt/lists/*
 COPY ./texlive.profile ./
-RUN chmod +x ./latexindent
 RUN wget ${REPO}/install-tl-unx.tar.gz \
     && tar -xzf ./install-tl-unx.tar.gz --strip-components=1 \
     && ./install-tl -repository ${REPO} --profile=texlive.profile \
