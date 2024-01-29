@@ -15,7 +15,7 @@ RUN wget ${REPO}/install-tl-unx.tar.gz \
     && ln -sf /usr/local/texlive/*/bin/* /usr/local/bin/texlive
 ENV PATH /usr/local/bin/texlive:$PATH
 RUN tlmgr update --self && tlmgr update --all \
-    && tlmgr install latexmk chktex \
+    && tlmgr install collection-fontsrecommended latexmk chktex \
     && wget -O latexindent https://github.com/cmhughes/latexindent.pl/releases/download/V3.23.6/latexindent-linux \
     && chmod +x latexindent
 
