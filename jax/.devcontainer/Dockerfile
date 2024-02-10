@@ -20,6 +20,7 @@ RUN python -m pip install --no-cache-dir \
     numpy \
     orbax-checkpoint \
     orbax-export \
+    poetry \
     tf-nightly-cpu \
     tfds-nightly
 
