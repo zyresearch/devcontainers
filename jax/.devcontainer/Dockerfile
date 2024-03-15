@@ -11,18 +11,17 @@ RUN python -m pip install --no-cache-dir --upgrade pip \
 
 RUN python -m pip install --no-cache-dir \
     absl-py \
-    clu@git+https://github.com/google/CommonLoopUtils \
+    clu@git+https://github.com/google/CommonLoopUtils.git \
     dill \
     dm-haiku \
-    flax \
+    flax@git+https://github.com/google/flax.git \
     jaxline \
     ml-collections \
     numpy \
     orbax-checkpoint \
     orbax-export \
-    poetry \
-    tf-nightly-cpu \
-    tfds-nightly
+    tensorflow-cpu \
+    tensorflow-datasets
 
 FROM base
 
