@@ -1,7 +1,11 @@
 {
-    "image": "ghcr.io/nvidia/jax:jax",
+    "build": {
+        "dockerfile": "Dockerfile"
+    },
     "features": {
-        "ghcr.io/devcontainers/features/common-utils:2": {}
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "username": "jax"
+        }
     },
     "customizations": {
         "vscode": {
@@ -9,13 +13,7 @@
                 "ms-python.python",
                 "ms-python.vscode-pylance",
                 "charliermarsh.ruff"
-            ],
-            "settings": {
-                "python.analysis.extraPaths": [
-                    "/opt/jax",
-                    "/opt/flax"
-                ]
-            }
+            ]
         }
     }
 }
