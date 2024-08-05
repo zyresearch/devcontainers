@@ -16,7 +16,7 @@ RUN python -m pip install --no-cache-dir \
     ml-collections \
     numpy \
     optax \
-    orbax-checkpoint \
+    orbax-checkpoint@git+https://github.com/google/orbax/#subdirectory=checkpoint \
     tensorflow-cpu \
     tensorflow-datasets
 
