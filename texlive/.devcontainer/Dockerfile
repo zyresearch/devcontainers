@@ -9,8 +9,8 @@ RUN apt-get update && apt-get install -y \
     xz-utils \
     make \
     && rm -rf /var/lib/apt/lists/*
-COPY ./texlive.profile ./tlpkgs.txt ./
 
+COPY ./texlive.profile ./
 RUN curl -L -o install-tl-unx.tar.gz ${REPO}/install-tl-unx.tar.gz \
     && tar -xzf ./install-tl-unx.tar.gz --strip-components=1 \
     && ./install-tl --profile=texlive.profile \
