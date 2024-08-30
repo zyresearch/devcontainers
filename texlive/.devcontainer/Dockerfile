@@ -1,31 +1,49 @@
-FROM debian:12-slim AS installer
-ARG REPO=https://mirrors.tuna.tsinghua.edu.cn/CTAN/systems/texlive/tlnet
+FROM debian:bookworm-slim AS installer
+ARG REPO=https://mirror.ctan.org/systems/texlive/tlnet
 
 WORKDIR /install-tl-unx
 RUN apt-get update && apt-get install -y \
     fontconfig \
     perl \
-    wget \
+    curl \
     xz-utils \
+    make \
     && rm -rf /var/lib/apt/lists/*
-COPY ./texlive.profile ./
-RUN wget ${REPO}/install-tl-unx.tar.gz \
-    && tar -xzf ./install-tl-unx.tar.gz --strip-components=1 \
-    && ./install-tl -repository ${REPO} --profile=texlive.profile \
-    && ln -sf /usr/local/texlive/*/bin/* /usr/local/bin/texlive
-ENV PATH /usr/local/bin/texlive:$PATH
-RUN tlmgr update --self && tlmgr update --all \
-    && tlmgr install collection-fontsrecommended latexmk chktex \
-    && wget -O latexindent https://github.com/cmhughes/latexindent.pl/releases/download/V3.23.6/latexindent-linux \
-    && chmod +x latexindent
+COPY ./texlive.profile ./tlpkgs.txt ./
 
-FROM debian:12-slim
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    perl \
-    wget \
-    git \
+RUN curl -L -o install-tl-unx.tar.gz ${REPO}/install-tl-unx.tar.gz \
+    && tar -xzf ./install-tl-unx.tar.gz --strip-components=1 \
+    && ./install-tl --profile=texlive.profile \
+    && ln -sf /usr/local/texlive/*/bin/* /usr/local/bin/texlive
+ENV PATH=/usr/local/bin/texlive:$PATH
+
+RUN tlmgr update --self && tlmgr update --all \
+    && tlmgr install latex latex-bin latexconfig latex-fonts \
+    && tlmgr install amsmath \
+        babel \
+        carlisle \
+        ec \
+        geometry \
+        graphics \
+        hyperref \
+        lm \
+        marvosym \
+        oberdiek \
+        parskip \
+        graphics-def \
+        url \
+    && tlmgr install chktex latexindent
+
+RUN curl -L http://cpanmin.us | perl - App::cpanminus \
+    && cpanm YAML::Tiny \
+    && cpanm File::HomeDir
+
+FROM debian:bookworm-slim
+RUN apt-get update && apt-get install -y --no-install-recommends perl git wget \
     && rm -rf /var/lib/apt/lists/*
+
 COPY --from=installer /usr/local/texlive /usr/local/texlive
+COPY --from=installer /usr/local/share/perl /usr/local/share/perl
+
 RUN ln -sf /usr/local/texlive/*/bin/* /usr/local/bin/texlive
-COPY --from=installer /install-tl-unx/latexindent /usr/local/bin/texlive
-ENV PATH /usr/local/bin/texlive:$PATH
+ENV PATH=/usr/local/bin/texlive:$PATH

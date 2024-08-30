@@ -2,9 +2,25 @@
     "build": {
         "dockerfile": "Dockerfile"
     },
+    "features": {
+        "ghcr.io/devcontainers/features/common-utils:2": {
+            "username": "texlive"
+        }
+    },
     "customizations": {
         "vscode": {
             "settings": {
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "pdflatex -> bibtex -> pdflatex * 2",
+                        "tools": [
+                            "pdflatex",
+                            "bibtex",
+                            "pdflatex",
+                            "pdflatex"
+                        ]
+                    }
+                ],
                 "latex-workshop.latex.autoClean.run": "onBuilt",
                 "latex-workshop.latex.clean.subfolder.enabled": true,
                 "latex-workshop.linting.chktex.enabled": true,
