@@ -1,4 +1,4 @@
-FROM python:3.12-slim AS base
+FROM python:3.10-slim AS base
 
 FROM base AS pip-installs
 
@@ -7,23 +7,20 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 RUN python -m pip install --no-cache-dir --upgrade pip \
-    && python -m pip install --no-cache-dir jax[cuda12_pip] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html
+    && python -m pip install --no-cache-dir jax[cuda12]
 
 RUN python -m pip install --no-cache-dir \
     absl-py \
     clu@git+https://github.com/google/CommonLoopUtils.git \
-    dill \
-    dm-haiku \
-    flax@git+https://github.com/google/flax.git \
-    jaxline \
+    flax@git+https://github.com/google/flax.git\
     ml-collections \
     numpy \
-    orbax-checkpoint \
-    orbax-export \
+    optax \
+    orbax-checkpoint@git+https://github.com/google/orbax/#subdirectory=checkpoint \
     tensorflow-cpu \
     tensorflow-datasets
 
 FROM base
 
-COPY --from=pip-installs /usr/local/lib/python3.12/site-packages /usr/local/lib/python3.12/site-packages
+COPY --from=pip-installs /usr/local/lib/python3.10/site-packages /usr/local/lib/python3.10/site-packages
 COPY --from=pip-installs /usr/local/bin /usr/local/bin
