@@ -32,7 +32,7 @@ RUN tlmgr update --self && tlmgr update --all \
         parskip \
         graphics-def \
         url \
-    && tlmgr install chktex latexindent
+    && tlmgr install latexmk chktex latexindent
 
 RUN curl -L http://cpanmin.us | perl - App::cpanminus \
     && cpanm YAML::Tiny \
