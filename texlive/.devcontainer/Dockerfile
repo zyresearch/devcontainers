@@ -18,7 +18,7 @@ RUN curl -L -o install-tl-unx.tar.gz ${REPO}/install-tl-unx.tar.gz \
 ENV PATH=/usr/local/bin/texlive:$PATH
 
 RUN tlmgr update --self && tlmgr update --all \
-    && tlmgr install xetex latex latexmk chktex latexindent \
+    && tlmgr install latex xetex bibtex latexmk chktex latexindent \
         amsmath \
         amsfonts \
         babel \
