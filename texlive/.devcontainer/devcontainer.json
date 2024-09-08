@@ -10,6 +10,14 @@
     "customizations": {
         "vscode": {
             "settings": {
+                "latex-workshop.latex.recipes": [
+                    {
+                        "name": "latexmk (xelatex)",
+                        "tools": [
+                            "xelatexmk"
+                        ]
+                    }
+                ],
                 "latex-workshop.latex.autoClean.run": "onBuilt",
                 "latex-workshop.latex.clean.subfolder.enabled": true,
                 "latex-workshop.linting.chktex.enabled": true,

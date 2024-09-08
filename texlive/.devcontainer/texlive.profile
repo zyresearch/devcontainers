@@ -1,4 +1,4 @@
-selected_scheme scheme-minimal
+selected_scheme scheme-infraonly
 tlpdbopt_autobackup 0
 tlpdbopt_create_formats 0
 tlpdbopt_install_docfiles 0

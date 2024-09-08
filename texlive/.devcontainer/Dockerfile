@@ -18,8 +18,9 @@ RUN curl -L -o install-tl-unx.tar.gz ${REPO}/install-tl-unx.tar.gz \
 ENV PATH=/usr/local/bin/texlive:$PATH
 
 RUN tlmgr update --self && tlmgr update --all \
-    && tlmgr install latex latex-bin latexconfig latex-fonts \
-    && tlmgr install amsmath \
+    && tlmgr install xetex latex latexmk chktex latexindent \
+        amsmath \
+        amsfonts \
         babel \
         carlisle \
         ec \
@@ -31,15 +32,14 @@ RUN tlmgr update --self && tlmgr update --all \
         oberdiek \
         parskip \
         graphics-def \
-        url \
-    && tlmgr install latexmk chktex latexindent
+        url
 
 RUN curl -L http://cpanmin.us | perl - App::cpanminus \
     && cpanm YAML::Tiny \
     && cpanm File::HomeDir
 
 FROM debian:bookworm-slim
-RUN apt-get update && apt-get install -y --no-install-recommends perl git wget \
+RUN apt-get update && apt-get install -y --no-install-recommends perl git wget fontconfig \
     && rm -rf /var/lib/apt/lists/*
 
 COPY --from=installer /usr/local/texlive /usr/local/texlive
