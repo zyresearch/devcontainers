@@ -20,23 +20,6 @@
                 ],
                 "latex-workshop.latex.autoClean.run": "onBuilt",
                 "latex-workshop.latex.clean.subfolder.enabled": true,
-                "latex-workshop.linting.chktex.enabled": true,
-                "latex-workshop.linting.chktex.exec.path": "chktex",
-                "latex-workshop.linting.chktex.exec.args": [
-                    "-wall",
-                    "-n22",
-                    "-n30",
-                    "-n46",
-                    "-e16",
-                    "-q"
-                ],
-                "latex-workshop.latexindent.path": "latexindent",
-                "latex-workshop.latexindent.args": [
-                    "-c",
-                    "%DIR%",
-                    "%TMPFILE%",
-                    "-y=defaultIndent: '%INDENT%'"
-                ],
                 "latex-workshop.synctex.afterBuild.enabled": true
             },
             "extensions": [
